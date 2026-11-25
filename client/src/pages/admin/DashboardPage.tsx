@@ -38,13 +38,13 @@ export function DashboardPage() {
       {error && <p className="mt-6 text-sm text-danger">{error}</p>}
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <Stat label="Total projects" value={stats?.totalProjects} loading={loading} to="/admin/projects" />
-        <Stat label="Published" value={stats?.publishedProjects} loading={loading} to="/admin/projects?status=published" />
-        <Stat label="Drafts" value={stats?.draftProjects} loading={loading} to="/admin/projects?status=draft" />
-        <Stat label="Unread messages" value={stats?.unreadMessages} loading={loading} to="/admin/messages" />
+        <Stat label="Total projects" value={stats?.totalProjects} loading={loading} to="/admin/projects" tone="bg-accent text-white" />
+        <Stat label="Published" value={stats?.publishedProjects} loading={loading} to="/admin/projects?status=published" tone="bg-[#6D4AFF] text-white" />
+        <Stat label="Drafts" value={stats?.draftProjects} loading={loading} to="/admin/projects?status=draft" tone="bg-ink text-cream" />
+        <Stat label="Unread messages" value={stats?.unreadMessages} loading={loading} to="/admin/messages" tone="bg-[#D6FF4A] text-ink" />
       </div>
 
-      <section className="mt-10 rounded-3xl border border-line bg-white">
+      <section className="mt-10 overflow-hidden rounded-3xl border border-line bg-white shadow-card">
         <div className="flex items-center justify-between border-b border-line px-5 py-4">
           <h2 className="font-serif text-3xl">Recent projects</h2>
           <Link to="/admin/projects" className="text-sm text-accent-deep">
@@ -72,7 +72,7 @@ export function DashboardPage() {
         ) : (
           <div className="px-5 py-10">
             <p className="text-sm text-muted">No projects yet.</p>
-            <Link to="/admin/projects/new" className="mt-4 inline-flex rounded-full bg-ink px-4 py-2 text-sm text-cream">
+            <Link to="/admin/projects/new" className="mt-4 inline-flex rounded-full bg-accent px-4 py-2 text-sm text-white">
               Create a project
             </Link>
           </div>
@@ -82,10 +82,10 @@ export function DashboardPage() {
   );
 }
 
-function Stat({ label, value, loading, to }: { label: string; value?: number; loading: boolean; to: string }) {
+function Stat({ label, value, loading, to, tone }: { label: string; value?: number; loading: boolean; to: string; tone: string }) {
   return (
-    <Link to={to} className="rounded-3xl border border-line bg-white p-5 transition hover:-translate-y-0.5">
-      <p className="text-xs uppercase tracking-[0.16em] text-stone">{label}</p>
+    <Link to={to} className={`rounded-3xl p-5 shadow-card transition hover:-translate-y-1 ${tone}`}>
+      <p className="text-xs uppercase tracking-[0.16em] opacity-80">{label}</p>
       <p className="mt-3 font-serif text-5xl">{loading ? '—' : value ?? 0}</p>
     </Link>
   );

@@ -3,9 +3,10 @@ import { site } from '@/content/site';
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-cream">
+    <footer className="bg-[#140818] text-cream">
+      <div className="h-1.5 bg-gradient-to-r from-accent via-[#6D4AFF] to-[#D6FF4A]" />
       <div className="mx-auto max-w-site px-5 pb-8 pt-16 sm:px-8">
-        <p className="font-serif text-[18vw] leading-[0.8] tracking-tight sm:text-[12vw]">Trainonex</p>
+        <p className="font-serif text-[18vw] leading-[0.8] tracking-tight text-[#D6FF4A] sm:text-[12vw]">Trainonex</p>
         <div className="mt-10 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-cream/45">Studio</p>

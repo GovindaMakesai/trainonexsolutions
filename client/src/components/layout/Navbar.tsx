@@ -54,7 +54,7 @@ export function Navbar() {
     <header
       className={cx(
         'fixed inset-x-0 top-0 z-50 transition-colors',
-        open ? 'bg-ink' : scrolled || !isHome ? 'border-b border-line/80 bg-paper/90 backdrop-blur-md' : 'bg-transparent',
+        open ? 'bg-[#140818]' : scrolled || !isHome ? 'border-b border-line/80 bg-white/90 shadow-[inset_0_-3px_0_0] shadow-accent backdrop-blur-md' : 'bg-transparent',
       )}
     >
       <div className="mx-auto flex h-[76px] max-w-site items-center justify-between px-5 sm:px-8">
@@ -74,7 +74,7 @@ export function Navbar() {
               {link.label}
             </button>
           ))}
-          <button type="button" onClick={() => goTo('contact')} className="rounded-full bg-accent-deep px-4 py-2 text-sm font-medium text-white">
+          <button type="button" onClick={() => goTo('contact')} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white">
             Start a project
           </button>
         </nav>

@@ -1,6 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Field, fieldClass } from '@/components/ui/Field';
+import { photos } from '@/content/photos';
 import { site } from '@/content/site';
 import { getErrorMessage, getFieldErrors } from '@/lib/errors';
 import { sendContact } from '@/services/studio';
@@ -70,18 +71,21 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-ink py-24 text-cream">
-      <div className="mx-auto grid max-w-site gap-12 px-5 sm:px-8 lg:grid-cols-12">
+    <section id="contact" className="relative overflow-hidden bg-[#140818] py-24 text-cream">
+      <div className="pointer-events-none absolute -left-16 top-10 h-64 w-64 rounded-full bg-accent/30 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full bg-[#6D4AFF]/40 blur-3xl" />
+      <div className="relative mx-auto grid max-w-site gap-12 px-5 sm:px-8 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <p className="text-xs uppercase tracking-[0.22em] text-cream/50">{site.contact.eyebrow}</p>
+          <p className="text-xs uppercase tracking-[0.22em] text-[#D6FF4A]">{site.contact.eyebrow}</p>
           <h2 className="mt-3 font-serif text-5xl tracking-tight sm:text-6xl">{site.contact.title}</h2>
-          <p className="mt-5 max-w-md text-sm leading-7 text-cream/70">{site.contact.summary}</p>
-          <a className="mt-8 inline-block text-sm text-cream underline decoration-white/30 underline-offset-4" href={`mailto:${site.email}`}>
+          <p className="mt-5 max-w-md text-sm leading-7 text-cream/75">{site.contact.summary}</p>
+          <a className="mt-8 inline-block text-sm text-[#D6FF4A] underline decoration-[#D6FF4A]/40 underline-offset-4" href={`mailto:${site.email}`}>
             {site.email}
           </a>
+          <img src={photos.office} alt="A bright studio workspace with plants and a desk" className="mt-8 hidden aspect-[16/9] w-full rounded-[28px] object-cover lg:block" />
         </div>
 
-        <div className="rounded-[28px] bg-cream p-6 text-ink sm:p-8 lg:col-span-7">
+        <div className="rounded-[28px] bg-white p-6 text-ink shadow-card ring-4 ring-[#D6FF4A]/40 sm:p-8 lg:col-span-7">
           {sent ? (
             <div className="flex min-h-[320px] flex-col justify-center">
               <p className="text-xs uppercase tracking-[0.2em] text-stone">Received</p>

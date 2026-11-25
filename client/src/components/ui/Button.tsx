@@ -5,7 +5,7 @@ import { cx } from '@/lib/format';
 type Variant = 'primary' | 'secondary' | 'ghost' | 'ghostLight' | 'danger';
 
 const variants: Record<Variant, string> = {
-  primary: 'bg-accent-deep text-white hover:bg-[#b82e09]',
+  primary: 'bg-accent text-white shadow-[0_12px_30px_-14px_rgba(255,77,28,0.95)] hover:bg-accent-deep',
   secondary: 'bg-ink text-cream hover:bg-black',
   ghost: 'border border-line bg-transparent text-ink hover:border-ink',
   ghostLight: 'border border-white/25 bg-transparent text-cream hover:border-white',

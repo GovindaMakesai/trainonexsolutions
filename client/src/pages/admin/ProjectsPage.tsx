@@ -165,7 +165,7 @@ export function ProjectsPage() {
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className={cx('rounded-full px-3 py-1 text-xs', project.status === 'published' ? 'bg-forest/10 text-forest' : 'bg-ink/5 text-muted')}>
+                    <span className={cx('rounded-full px-3 py-1 text-xs', project.status === 'published' ? 'bg-[#D6FF4A] text-ink' : 'bg-[#6D4AFF]/15 text-[#6D4AFF]')}>
                       {project.status === 'published' ? 'Published' : 'Draft'}
                     </span>
                     <button type="button" className="rounded-full border border-line px-3 py-1.5 text-sm" disabled={busyId === project._id} onClick={() => void onStatus(project)}>

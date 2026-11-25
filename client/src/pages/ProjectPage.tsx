@@ -122,7 +122,7 @@ export function ProjectPage() {
 
       {project.thumbnail?.url && (
         <button type="button" className="mx-auto mt-12 block w-full max-w-[1400px] px-5 sm:px-8" onClick={() => setActiveImage(0)}>
-          <img src={project.thumbnail.url} alt={`${project.title} thumbnail`} className="aspect-[16/9] w-full object-cover" />
+          <img src={project.thumbnail.url} alt={`${project.title} thumbnail`} className="aspect-[16/9] w-full rounded-[28px] object-cover shadow-card" />
         </button>
       )}
 
@@ -138,7 +138,7 @@ export function ProjectPage() {
         <div className="mx-auto mt-14 grid max-w-site gap-4 px-5 sm:grid-cols-2 sm:px-8">
           {project.gallery.map((image, index) => (
             <button key={image.publicId} type="button" onClick={() => setActiveImage(project.thumbnail ? index + 1 : index)}>
-              <img src={image.url} alt={`${project.title} gallery ${index + 1}`} className="aspect-[4/3] w-full object-cover" />
+              <img src={image.url} alt={`${project.title} gallery ${index + 1}`} className="aspect-[4/3] w-full rounded-[24px] object-cover shadow-card" />
             </button>
           ))}
         </div>
