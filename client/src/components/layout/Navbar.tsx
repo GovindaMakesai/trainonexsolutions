@@ -54,12 +54,12 @@ export function Navbar() {
     <header
       className={cx(
         'fixed inset-x-0 top-0 z-50 transition-colors',
-        open ? 'bg-[#140818]' : scrolled || !isHome ? 'border-b border-line/80 bg-white/90 shadow-[inset_0_-3px_0_0] shadow-accent backdrop-blur-md' : 'bg-transparent',
+        open ? 'bg-[#140818]' : scrolled || !isHome ? 'border-b border-line/80 bg-white/90 shadow-soft backdrop-blur-md' : 'bg-transparent',
       )}
     >
       <div className="mx-auto flex h-[76px] max-w-site items-center justify-between px-5 sm:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label={`${site.legalName} home`}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white">T</span>
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-sm font-semibold text-white shadow-soft transition duration-300 hover:scale-105 hover:shadow-lift">T</span>
           <span className={cx('text-sm font-semibold tracking-[0.16em]', light ? 'text-cream' : 'text-ink')}>TRAINONEX</span>
         </Link>
 
@@ -69,12 +69,12 @@ export function Navbar() {
               key={link.id}
               type="button"
               onClick={() => goTo(link.id)}
-              className={cx('text-sm transition hover:text-accent-deep', light ? 'text-cream/80' : 'text-ink/80')}
+              className={cx('nav-link text-sm transition duration-300 hover:text-accent-deep', light ? 'text-cream/80' : 'text-ink/80')}
             >
               {link.label}
             </button>
           ))}
-          <button type="button" onClick={() => goTo('contact')} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white">
+          <button type="button" onClick={() => goTo('contact')} className="rounded-full bg-accent px-4 py-2 text-sm font-medium text-white shadow-[0_12px_24px_-14px_rgba(255,77,28,0.9)] transition duration-300 hover:-translate-y-0.5 hover:bg-accent-deep">
             Start a project
           </button>
         </nav>

@@ -4,9 +4,9 @@ import { site } from '@/content/site';
 export function Footer() {
   return (
     <footer className="bg-[#140818] text-cream">
-      <div className="h-1.5 bg-gradient-to-r from-accent via-[#6D4AFF] to-[#D6FF4A]" />
+      <div className="h-px bg-white/15" />
       <div className="mx-auto max-w-site px-5 pb-8 pt-16 sm:px-8">
-        <p className="font-serif text-[18vw] leading-[0.8] tracking-tight text-[#D6FF4A] sm:text-[12vw]">Trainonex</p>
+        <p className="font-serif text-[18vw] leading-[0.8] tracking-tight text-cream transition duration-500 hover:text-accent sm:text-[12vw]">Trainonex</p>
         <div className="mt-10 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-cream/45">Studio</p>
@@ -17,10 +17,10 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-cream/45">Visit</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><a className="text-cream/80 hover:text-white" href="/#work">Work</a></li>
-              <li><a className="text-cream/80 hover:text-white" href="/#services">Services</a></li>
-              <li><a className="text-cream/80 hover:text-white" href="/#about">About</a></li>
-              <li><a className="text-cream/80 hover:text-white" href="/#contact">Contact</a></li>
+              <li><a className="text-cream/80 transition duration-300 hover:text-accent" href="/#work">Work</a></li>
+              <li><a className="text-cream/80 transition duration-300 hover:text-accent" href="/#services">Services</a></li>
+              <li><a className="text-cream/80 transition duration-300 hover:text-accent" href="/#about">About</a></li>
+              <li><a className="text-cream/80 transition duration-300 hover:text-accent" href="/#contact">Contact</a></li>
             </ul>
           </div>
           <div>

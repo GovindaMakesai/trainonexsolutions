@@ -149,7 +149,7 @@ export function ProjectsPage() {
           projects.map((project) => {
             const category = categoryOf(project);
             return (
-              <article key={project._id} className="grid gap-4 rounded-3xl border border-line bg-white p-4 sm:grid-cols-[96px_1fr] sm:items-center">
+              <article key={project._id} className="panel hover-lift grid gap-4 rounded-3xl p-4 sm:grid-cols-[96px_1fr] sm:items-center">
                 <div className="h-20 overflow-hidden rounded-2xl bg-ink/5">
                   {project.thumbnail?.url ? (
                     <img src={project.thumbnail.url} alt="" className="h-full w-full object-cover" />
@@ -165,7 +165,7 @@ export function ProjectsPage() {
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className={cx('rounded-full px-3 py-1 text-xs', project.status === 'published' ? 'bg-[#D6FF4A] text-ink' : 'bg-[#6D4AFF]/15 text-[#6D4AFF]')}>
+                    <span className={cx('rounded-full px-3 py-1 text-xs shadow-soft', project.status === 'published' ? 'bg-ink text-cream' : 'bg-white text-muted ring-1 ring-line')}>
                       {project.status === 'published' ? 'Published' : 'Draft'}
                     </span>
                     <button type="button" className="rounded-full border border-line px-3 py-1.5 text-sm" disabled={busyId === project._id} onClick={() => void onStatus(project)}>

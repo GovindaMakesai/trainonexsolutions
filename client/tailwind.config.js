@@ -24,6 +24,8 @@ export default {
       },
       boxShadow: {
         card: '0 24px 60px -36px rgba(20, 22, 19, 0.45)',
+        lift: '0 28px 60px -26px rgba(20, 22, 19, 0.38)',
+        soft: '0 10px 30px -18px rgba(20, 22, 19, 0.35)',
       },
       keyframes: {
         marquee: {

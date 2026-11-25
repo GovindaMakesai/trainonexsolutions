@@ -48,11 +48,11 @@ export function LoginPage() {
       <Seo title="Studio login — Trainonex" description="Sign in to the Trainonex studio." noIndex />
       <section className="relative hidden overflow-hidden lg:block">
         <img src={photos.color} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#140818] via-[#140818]/70 to-[#6D4AFF]/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#140818] via-[#140818]/75 to-[#140818]/25" />
         <div className="relative flex h-full flex-col justify-between px-12 py-12 text-cream">
           <p className="text-sm tracking-[0.18em]">TRAINONEX</p>
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-[#D6FF4A]">Studio</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-accent">Studio</p>
             <h1 className="mt-4 max-w-md font-serif text-6xl leading-[0.95]">The studio, behind the work.</h1>
             <p className="mt-6 max-w-sm text-sm leading-6 text-cream/80">
               Publish case studies, keep drafts private, and update the public site without touching the code.

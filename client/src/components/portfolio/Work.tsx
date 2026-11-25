@@ -10,9 +10,9 @@ import type { Project } from '@/types';
 function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
   const category = categoryOf(project);
   return (
-    <article className={cx(featured && 'md:col-span-2')}>
+    <article className={cx('hover-lift', featured && 'md:col-span-2')}>
       <Link to={`/work/${project.slug}`} className="group block">
-        <div className={cx('overflow-hidden rounded-[28px] bg-ink/5 shadow-card ring-4 ring-white', featured ? 'aspect-[16/10]' : 'aspect-[4/3]')}>
+        <div className={cx('media-frame rounded-[28px] bg-ink/5 ring-1 ring-black/5', featured ? 'aspect-[16/10]' : 'aspect-[4/3]')}>
           {project.thumbnail?.url ? (
             <img
               src={project.thumbnail.url}
@@ -27,7 +27,7 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
         </div>
         <div className="mt-4 flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-[#6D4AFF]">{category?.name || 'Project'}</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-accent-deep">{category?.name || 'Project'}</p>
             <h3 className="mt-1 font-serif text-3xl tracking-tight group-hover:text-accent-deep">{project.title}</h3>
           </div>
           <ArrowUpRight className="mt-2 h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -58,7 +58,7 @@ export function Work() {
       <div className="mx-auto max-w-site px-5 sm:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-[#6D4AFF]">Selected work</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-accent-deep">Selected work</p>
             <h2 className="mt-3 font-serif text-5xl tracking-tight sm:text-6xl">Case studies</h2>
           </div>
           <p className="max-w-sm text-sm leading-6 text-muted">
@@ -130,8 +130,8 @@ function FilterChip({ active, children, onClick }: { active: boolean; children: 
       aria-selected={active}
       onClick={onClick}
       className={cx(
-        'shrink-0 rounded-full px-4 py-2 text-sm transition',
-        active ? 'bg-ink text-[#D6FF4A]' : 'border border-line bg-white text-ink hover:border-[#6D4AFF] hover:text-[#6D4AFF]',
+        'shrink-0 rounded-full px-4 py-2 text-sm transition duration-300',
+        active ? 'bg-ink text-cream shadow-lift' : 'panel text-ink hover:-translate-y-0.5 hover:border-ink',
       )}
     >
       {children}

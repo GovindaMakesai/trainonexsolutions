@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { cx } from '@/lib/format';
 
 const control =
-  'w-full rounded-2xl border border-line bg-white px-4 py-3 text-sm text-ink outline-none transition placeholder:text-stone focus:border-ink';
+  'w-full rounded-2xl border border-line bg-white px-4 py-3 text-sm text-ink shadow-soft outline-none transition duration-300 placeholder:text-stone focus:-translate-y-px focus:border-accent focus:shadow-[0_0_0_4px_rgba(255,77,28,0.12)]';
 
 export function fieldClass(invalid?: boolean, className?: string) {
   return cx(control, invalid && 'border-danger focus:border-danger', className);

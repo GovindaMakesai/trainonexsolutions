@@ -66,8 +66,8 @@ export function AdminLayout() {
             end={link.end}
             className={({ isActive }) =>
               cx(
-                'flex items-center justify-between rounded-2xl px-3 py-2.5 text-sm',
-                isActive ? 'bg-[#D6FF4A] text-ink' : 'text-white/75 hover:bg-white/10 hover:text-white',
+                'flex items-center justify-between rounded-2xl px-3 py-2.5 text-sm transition duration-300',
+                isActive ? 'bg-white text-ink shadow-lift' : 'text-white/75 hover:translate-x-1 hover:bg-white/10 hover:text-white',
               )
             }
           >
@@ -93,16 +93,16 @@ export function AdminLayout() {
   );
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(255,77,28,0.18),transparent_32%),radial-gradient(circle_at_top_right,rgba(109,74,255,0.18),transparent_36%),#fff7f2] lg:grid lg:grid-cols-[260px_1fr]">
-      <aside className="hidden bg-gradient-to-b from-[#3a1768] via-[#140818] to-accent px-4 py-6 text-cream lg:block">{sidebar}</aside>
-      <div className="flex items-center justify-between bg-gradient-to-r from-[#3a1768] to-accent px-4 py-4 text-cream lg:hidden">
+    <div className="min-h-screen bg-[#f6f3ee] lg:grid lg:grid-cols-[260px_1fr]">
+      <aside className="hidden bg-ink px-4 py-6 text-cream shadow-lift lg:block">{sidebar}</aside>
+      <div className="flex items-center justify-between bg-ink px-4 py-4 text-cream shadow-soft lg:hidden">
         <p className="text-sm tracking-[0.14em]">TRAINONEX</p>
         <button type="button" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15" onClick={() => setOpen(true)} aria-label="Open studio menu">
           <Menu className="h-5 w-5" />
         </button>
       </div>
       {open && (
-        <div className="fixed inset-0 z-50 bg-gradient-to-b from-[#3a1768] via-[#140818] to-accent px-4 py-6 text-cream lg:hidden">
+        <div className="fixed inset-0 z-50 bg-ink px-4 py-6 text-cream lg:hidden">
           <button type="button" className="absolute right-4 top-4" onClick={() => setOpen(false)} aria-label="Close studio menu">
             <X className="h-5 w-5" />
           </button>
