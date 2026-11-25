@@ -38,7 +38,17 @@ export function usePublicProjects() {
 
   useEffect(() => {
     getCategories()
-      .then(setCategories)
+      .then((items) => {
+        const seen = new Set<string>();
+        setCategories(
+          items.filter((item) => {
+            const key = item.slug || item.name.toLowerCase();
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          }),
+        );
+      })
       .catch(() => setCategories([]));
   }, []);
 

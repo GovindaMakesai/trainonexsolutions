@@ -1,7 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
-import { photos } from '@/content/photos';
 import { usePublicProjects } from '@/hooks/usePublicProjects';
 import { categoryOf } from '@/lib/errors';
 import { cx } from '@/lib/format';
@@ -66,7 +65,7 @@ export function Work() {
           </p>
         </div>
 
-        <div className="mt-8 flex gap-2 overflow-x-auto pb-2" role="tablist" aria-label="Filter work by category">
+        <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter work by category">
           <FilterChip active={category === 'all'} onClick={() => setCategory('all')}>
             All
           </FilterChip>
@@ -92,15 +91,11 @@ export function Work() {
             <Skeleton />
           </div>
         ) : projects.length === 0 ? (
-          <div className="relative mt-10 overflow-hidden rounded-[32px] px-6 py-20 text-center text-cream shadow-card">
-            <img src={photos.abstract} alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-[#140818]/75" />
-            <div className="relative">
-              <h3 className="font-serif text-4xl">Nothing published in this view yet.</h3>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-cream/80">
-                Case studies appear here as soon as they are published from the studio dashboard. Drafts are never shown on this page.
-              </p>
-            </div>
+          <div className="panel mt-10 rounded-[32px] px-6 py-16 text-center">
+            <h3 className="font-serif text-4xl">Nothing published in this view yet.</h3>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-muted">
+              Case studies appear here as soon as they are published from the studio dashboard. Drafts are never shown on this page.
+            </p>
           </div>
         ) : (
           <div className="mt-10 grid gap-x-8 gap-y-12 md:grid-cols-2">
