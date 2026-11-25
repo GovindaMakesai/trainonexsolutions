@@ -3,6 +3,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
+import mongoose from 'mongoose';
 import morgan from 'morgan';
 import { assertEnv, clientOrigins, env } from './config/env';
 import { connectDb } from './config/db';
@@ -46,6 +47,32 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 app.use(cookieParser());
 app.use(sanitizeInput);
+
+let ready: Promise<void> | null = null;
+
+function ensureReady(): Promise<void> {
+  if (mongoose.connection.readyState === 1 && ready) return ready;
+  if (!ready) {
+    ready = (async () => {
+      await connectDb();
+      await ensureBaseline();
+    })().catch((error) => {
+      ready = null;
+      throw error;
+    });
+  }
+  return ready;
+}
+
+app.use(async (_req, _res, next) => {
+  try {
+    await ensureReady();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
 
 if (env.nodeEnv !== 'production') {
@@ -60,8 +87,7 @@ app.use((req, _res, next) => {
 app.use(errorHandler);
 
 async function start() {
-  await connectDb();
-  await ensureBaseline();
+  await ensureReady();
   const server = app.listen(env.port, () => {
     console.log(`API listening on port ${env.port}`);
   });
@@ -73,11 +99,12 @@ async function start() {
   process.on('SIGINT', shutdown);
 }
 
-if (require.main === module) {
+if (require.main === module && !process.env.VERCEL) {
   start().catch((error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exit(1);
   });
 }
 
+export default app;
 export { app };
